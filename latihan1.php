@@ -1,17 +1,19 @@
 <?php
-class latihan1 extends CI_Controller
-{
-    public function index()
+class latihan1 extends CI_Controller 
+{ 
+    public function index() 
+    { 
+        echo "Selamat Datang.. selamat belajar Web Programming"; 
+        //$this->load->view('view-latihan1');
+    } 
+    public function penjumlahan($n1, $n2)
     {
-        echo "<h1> Perkenalkan!!! </h1>";
-        echo "<p>Nama    : Amaranti Satya Deriza</p>";
-        echo "<p> TTL    : Jakarta, 18 Oktober 2001</p>";
-        echo "<p> Alamat : Perumahan Grand Cikarang Village Blok S18/11";
-        echo "<p>  Saya anak pertama dari 3 berasudara, saya memiliki dua adik laki-laki.
-        Saya bekerja di RS Budi Asih Cikarang sebagai staff Accounting.</p>";
-        echo "<p>Hobby saya menedengarkan musik dan menonton podcast horror.
-        Saya sangat suka makanan dan minuman manis-- tidak sehat, jangan ditiru!!! hehehe</p>";
+        $this->load->model('model_latihan1'); 
 
-        echo "<p>Salam Kenal semuanya!!!</p>";
+        $data['nilai1'] = $n1; 
+        $data['nilai2'] = $n2;
+        $data['hasil'] = $this->model_latihan1->jumlah($n1, $n2);
+
+        $this->load->view('view_latihan1', $data);
     }
 }
